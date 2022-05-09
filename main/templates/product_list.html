@@ -1,0 +1,87 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<main class="container my-4">
+  <div class="row">
+    <!-- Filters -->
+    <div class="col-md-3">{% include 'filters.html' %}</div>
+    <div class="col-md-9">
+      <!-- Products -->
+      <h3 class="mb-4 border-bottom pb-1">Products</h3>
+      <div class="row" id="filteredProducts">
+        <p class="ajaxLoader">Loading...</p>
+        {% for product in data %}
+        <div class="col-lg-4 col-md-6 mb-4 product-box">
+          <div class="card shadow" style="text-align: center">
+            <a href="/product/{{product.slug}}/{{product.id}}"
+              ><img
+                style="width: 100%; height: 15vw; object-fit: contain"
+                src="/media/{{product.productattribute_set.first.image}}"
+                class="card-img-top"
+                alt="{{product.title}}"
+            /></a>
+            <div class="card-body">
+              <h5 class="card-text">
+                <a href="/product/{{product.slug}}/{{product.id}}"
+                  >{{product.title}}</a
+                >
+              </h5>
+              <h6>
+                $
+                <span class="product-price-{{product.id}}"
+                  >{{product.productattribute_set.first.price}}</span
+                >
+              </h6>
+            </div>
+            <div class="card-footer">
+              <input
+                type="hidden"
+                value="1"
+                class="form-control product-qty-{{product.id}}"
+                id="productQty"
+              />
+              <input
+                type="hidden"
+                class="product-image-{{product.id}}"
+                value="{{product.productattribute_set.first.image}}"
+              />
+              <input
+                type="hidden"
+                class="product-id-{{product.id}}"
+                value="{{product.id}}"
+              />
+              <input
+                type="hidden"
+                class="product-title-{{product.id}}"
+                value="{{product.title}}"
+              />
+              <button
+                class="btn btn-sm btn-primary add-to-cart"
+                data-index="{{product.id}}"
+              >
+                <i class="fa fa-shopping-cart"></i>
+              </button>
+              <button class="btn btn-sm btn-danger">
+                <i class="fa fa-heart"></i>
+              </button>
+              <span class="float-right">
+                4.5/5
+                <i class="fa fa-star text-warning"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <p class="my-4 text-center">
+        <button
+          id="loadMore"
+          data-total="{{total_data}}"
+          data-limit="3"
+          class="btn btn-dark btn-sm"
+        >
+          Load More <i class="fa fa-sync load-more-icon"></i>
+        </button>
+      </p>
+    </div>
+  </div>
+</main>
+{% endblock %}

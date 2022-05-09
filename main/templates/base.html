@@ -1,0 +1,271 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Himmation</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'fontawesome-free/css/all.min.css' %}"
+    />
+    <!-- Bootstrap 4 CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'bs4/bootstrap.min.css' %}"
+    />
+    <!-- Main Jquery -->
+    <script type="text/javascript" src="{% static 'jquery.min.js' %}"></script>
+
+    <!-- Bootstrap 4 JS -->
+    <script
+      type="text/javascript"
+      src="{% static 'bs4/bootstrap.min.js' %}"
+      <script
+      type="text/javascript"
+      src="https://studio.alan.app/web/lib/alan_lib.min.js"
+    ></script>
+    <script>
+
+      >
+    </script>
+    <!-- CustomJs -->
+    <link rel="stylesheet" type="text/css" href="{% static 'custom.css' %}" />
+    <script type="text/javascript" src="{% static 'custom.js' %}"></script>
+  </head>
+  <body>
+    <div class="alan-btn"></div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+      <div class="container">
+        <a class="navbar-brand" href="/">Himation</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <form class="form-inline my-2 my-lg-0" action="/search">
+            <div class="input-group">
+              <input
+                name="q"
+                type="text"
+                class="form-control"
+                placeholder="search"
+              />
+              <div class="input-group-append">
+                <button class="btn btn-dark" type="submit" id="button-addon2">
+                  Search
+                </button>
+              </div>
+            </div>
+          </form>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="{% url 'category-list' %}"
+                >Categories</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="{% url 'brand-list' %}"
+                >Brands</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="{% url 'cart' %}"
+                ><i class="fa fa-shopping-cart"></i> Cart (<span
+                  class="cart-list"
+                  >{{request.session.cartdata|length}}</span
+                >)</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link text-white dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <i class="fa fa-user"></i> My Account
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                {% if user.is_authenticated %}
+                <a class="dropdown-item" href="{% url 'my_dashboard' %}"
+                  >Dashboard</a
+                >
+                <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                <a class="dropdown-item" href="{% url 'login' %}">Login</a>
+                <a class="dropdown-item" href="{% url 'signup' %}">Signup</a>
+                {% endif %}
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {% block content %} {% endblock %}
+
+    <footer class="pt-4 my-md-5 pt-md-5 border-top container">
+      <div class="row">
+        <div class="col-12 col-md">
+          <a href="#">Himation</a>
+          <small class="d-block mb-3 text-muted"
+            >&copy; With smile on the face</small
+          >
+        </div>
+        <div class="col-6 col-md">
+          <h5>Features</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Cool stuff</a></li>
+            <li><a class="text-muted" href="#">Random feature</a></li>
+            <li><a class="text-muted" href="#">Team feature</a></li>
+            <li><a class="text-muted" href="#">Stuff for developers</a></li>
+            <li><a class="text-muted" href="#">Another one</a></li>
+            <li><a class="text-muted" href="#">Last time</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Resources</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Resource</a></li>
+            <li><a class="text-muted" href="#">Resource name</a></li>
+            <li><a class="text-muted" href="#">Another resource</a></li>
+            <li><a class="text-muted" href="#">Final resource</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>About</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Team</a></li>
+            <li><a class="text-muted" href="#">Locations</a></li>
+            <li><a class="text-muted" href="#">Privacy</a></li>
+            <li><a class="text-muted" href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <title>Alan Example</title>
+        </head>
+        <body>
+          <div class="alan-btn"></div>
+          <script
+            type="text/javascript"
+            src="https://studio.alan.app/web/lib/alan_lib.min.js"
+          ></script>
+          <script>
+            var alanBtnInstance = alanBtn({
+              key: "33c25a6cb5c12dbaaf1df5a6e710802b2e956eca572e1d8b807a3e2338fdd0dc/stage",
+              onCommand: function (commandData) {
+                if (commandData.command === "testCommand") {
+                  //call client code that will react to the received command
+                } else if (commandData.command === "ShowBrand") {
+                  //call client code that will react to the received command
+                  window.location.href = "http://127.0.0.1:8000/brand-list";
+                } else if (commandData.command === "GoHome") {
+                  //call client code that will react to the received command
+                  window.location.href = "http://127.0.0.1:8000";
+                } else if (commandData.command === "ShowCategories") {
+                  //call client code that will react to the received command
+                  window.location.href = "http://127.0.0.1:8000/category-list";
+                } else if (commandData.command === "ShowCart") {
+                  //call client code that will react to the received command
+                  window.location.href = "http://127.0.0.1:8000/cart";
+                } else if (commandData.command === "OpenShop") {
+                  //call client code that will react to the received command
+                  window.location.href = "http://127.0.0.1:8000/product-list";
+                } else if (commandData.command === "Crocodile") {
+                  //call client code that will react to the received command
+                  window.location.href =
+                    "http://127.0.0.1:8000/brand-product-list/9";
+                } else if (commandData.command === "Nike") {
+                  //call client code that will react to the received command
+                  window.location.href =
+                    "http://127.0.0.1:8000/brand-product-list/8";
+                } else if (commandData.command === "Armani") {
+                  //call client code that will react to the received command
+                  window.location.href =
+                    "http://127.0.0.1:8000/brand-product-list/7";
+                } else if (commandData.command === "Levis") {
+                  //call client code that will react to the received comman6
+                  window.location.href =
+                    "http://127.0.0.1:8000/brand-product-list/6";
+                } else if (commandData.command === "Puma") {
+                  //call client code that will react to the received command
+                  window.location.href =
+                    "http://127.0.0.1:8000/brand-product-list/5";
+                } else if (commandData.command === "NorthFace") {
+                  //call client code that will react to the received command
+                  window.location.href =
+                    "http://127.0.0.1:8000/brand-product-list/4";
+                } else if (commandData.command === "Adidas") {
+                  //call client code that will react to the received command
+                  window.location.href =
+                    "http://127.0.0.1:8000/brand-product-list/3";
+                } else if (commandData.command === "Shorts") {
+                  //call client code that will react to the received command
+                  window.location.href =
+                    "http://127.0.0.1:8000/category-product-list/10";
+                } else if (commandData.command === "Formal") {
+                  //call client code that will react to the received command
+                  window.location.href =
+                    "http://127.0.0.1:8000/category-product-list/9";
+                } else if (commandData.command === "Shirt") {
+                  //call client code that will react to the received command
+                  window.location.href =
+                    "http://127.0.0.1:8000/category-product-list/5";
+                } else if (commandData.command === "Gucci") {
+                  //call client code that will react to the received command
+                  window.location.href =
+                    "http://127.0.0.1:8000/brand-product-list/2";
+                } else if (commandData.command === "Pants") {
+                  //call client code that will react to the received command
+                  window.location.href =
+                    "http://127.0.0.1:8000/brand-product-list/2";
+                } else if (commandData.command === "Sweater") {
+                  //call client code that will react to the received command
+                  window.location.href =
+                    "http://127.0.0.1:8000/brand-product-list/2";
+                } else if (commandData.command === "Shirt") {
+                  //call client code that will react to the received command
+                  window.location.href =
+                    "http://127.0.0.1:8000/category-product-list/5";
+                } else if (commandData.command === "tShirt") {
+                  //call client code that will react to the received command
+                  window.location.href =
+                    "http://127.0.0.1:8000/category-product-list/8";
+                } else if (commandData.command === "Jacket") {
+                  //call client code that will react to the received command
+                  window.location.href =
+                    "http://127.0.0.1:8000/category-product-list/4";
+                } else if (commandData.command === "Hoodie") {
+                  //call client code that will react to the received command
+                  window.location.href =
+                    "http://127.0.0.1:8000/category-product-list/3";
+                }
+              },
+
+              rootEl: document.getElementById("alan-btn"),
+            });
+          </script>
+        </body>
+      </html>
+    </footer>
+  </body>
+</html>
