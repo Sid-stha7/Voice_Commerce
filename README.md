@@ -25,5 +25,5 @@ In order to run this project all the required dependencies and settings should b
 
 # Run project 
 * python manage.py runserver
-Open you AlanAI dashboard for AI part.
+* Open your alan dashboard for invoking AI part.
 
