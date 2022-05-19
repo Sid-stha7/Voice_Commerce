@@ -27,12 +27,11 @@ In order to run this project all the required dependencies and settings should b
 * python manage.py runserver
 * Open your alan dashboard for invoking AI part.
 # Project demo
-
-<h3>Home page </h3>
-![CHEESE!](https://user-images.githubusercontent.com/81900908/169270552-26f583bb-7959-418c-85e6-668c52931afe.png)
-
-<h3>Order Tracking </h3>
 ![image](https://user-images.githubusercontent.com/81900908/169270796-46864e41-a620-4608-b2b0-8f13ee2f4fab.png)
 ![image](https://user-images.githubusercontent.com/81900908/169271162-de171e59-7bbc-4ba3-b28f-9a4669bc207c.png)
+![image](https://user-images.githubusercontent.com/81900908/169272914-2e663c7e-6490-49f3-b5f1-1d2a715731ae.png)
+![image](https://user-images.githubusercontent.com/81900908/169273192-9704fd1b-1385-4595-8f57-dc1a30ff776d.png)
+
+
 
 
