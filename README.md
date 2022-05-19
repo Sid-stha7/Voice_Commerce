@@ -29,7 +29,7 @@ In order to run this project all the required dependencies and settings should b
 # Project demo
 
 <h3>Home page </h3>
-![image](https://user-images.githubusercontent.com/81900908/169270552-26f583bb-7959-418c-85e6-668c52931afe.png)
+![Alt Image text](https://user-images.githubusercontent.com/81900908/169270552-26f583bb-7959-418c-85e6-668c52931afe.png)
 
 <h3>Order Tracking </h3>
 ![image](https://user-images.githubusercontent.com/81900908/169270796-46864e41-a620-4608-b2b0-8f13ee2f4fab.png)
