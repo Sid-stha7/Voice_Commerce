@@ -39,7 +39,7 @@ In order to run this project all the required dependencies and settings should b
 # User Dashboard
 ![image](https://user-images.githubusercontent.com/81900908/169336051-b3efa0dc-029d-4a1a-a81b-92ab6ef649c4.png)
 
-# Product Management Admin  
+# Product Management Dashboard
 ![image](https://user-images.githubusercontent.com/81900908/169336143-5c50fc41-015e-41e9-9745-f90c4b18cd1c.png)
 
 # Order Management Dashboard
